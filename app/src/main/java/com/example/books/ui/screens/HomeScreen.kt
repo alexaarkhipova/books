@@ -16,7 +16,7 @@ fun HomeScreen(
             books = booksUiState.bookSearch,
             modifier = Modifier
         )
-        is BooksUiState.Error -> ErrorScreen(retryAction = retryAction, modifier)
+        is BooksUiState.Error -> ErrorScreen(retryAction = retryAction)
         else -> {}
     }
 }
