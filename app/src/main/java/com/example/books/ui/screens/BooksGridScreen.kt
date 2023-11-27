@@ -41,18 +41,17 @@ fun BooksGridScreen(
 }
 @Composable
 fun BooksCard(
-    book: Book,
-    modifier: Modifier = Modifier
+    book: Book
 ) {
     Card(
-        modifier = modifier
+        modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             AsyncImage(
-                modifier = modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 model = ImageRequest.Builder(context = LocalContext.current)
                     .data(book.imageLink?.replace("http", "https"))
                     .crossfade(true)

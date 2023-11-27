@@ -11,10 +11,10 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     when (booksUiState) {
-        is BooksUiState.Loading -> LoadingScreen(modifier)
+        is BooksUiState.Loading -> LoadingScreen()
         is BooksUiState.Success -> BooksGridScreen(
             books = booksUiState.bookSearch,
-            modifier = modifier
+            modifier = Modifier
         )
         is BooksUiState.Error -> ErrorScreen(retryAction = retryAction, modifier)
         else -> {}

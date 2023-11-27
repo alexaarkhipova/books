@@ -16,8 +16,7 @@ import com.example.books.R
 
 @Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
-    Log.d("LoadingScreen", "LoadingScreen is being displayed")
-    Box(modifier = modifier.fillMaxWidth(),
+    Box(modifier = Modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
         Image(modifier = Modifier.size(200.dp),
