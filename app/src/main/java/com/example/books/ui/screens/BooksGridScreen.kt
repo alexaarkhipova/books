@@ -1,5 +1,6 @@
 package com.example.books.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,25 +29,28 @@ import com.example.books.data.Book
 @Composable
 fun BooksGridScreen(
     books: List<Book>,
-    modifier: Modifier
+    modifier: Modifier = Modifier,
+    onBookClicked: (Book) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(150.dp),
         contentPadding = PaddingValues(4.dp)
     ) {
         itemsIndexed(books) {_, book ->
-            BooksCard(book = book)
+            BooksCard(book = book, onBookClicked)
         }
     }
 }
 @Composable
 fun BooksCard(
-    book: Book
+    book: Book,
+    onBookClicked: (Book) -> Unit
 ) {
     Card(
         modifier = Modifier
             .padding(4.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { onBookClicked(book) },
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
